@@ -35,6 +35,7 @@ MonoBehaviour:
   RpcList:
   - ClickRpc
   - DestroyRpc
+  - PlayerFinished
   DisableAutoOpenWizard: 1
   ShowSettings: 0
   DevRegionSetOnce: 1
