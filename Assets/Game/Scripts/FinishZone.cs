@@ -56,6 +56,12 @@ public class FinishZone : MonoBehaviourPun
             Debug.Log($"You finished at position {position}");
         }
 
+        UILeaderboard leaderboard = FindObjectOfType<UILeaderboard>();
+        if (leaderboard != null)
+        {
+            leaderboard.UpdateLeaderboard(finishedPlayers);
+        }
+
         // Check if all players have finished
         if (finishedPlayers.Count >= totalPlayers)
         {
@@ -67,7 +73,11 @@ public class FinishZone : MonoBehaviourPun
     {
         Debug.Log("Race Finished! Display results.");
 
-        // TODO: Show final results screen here
-        // You could pass finishedPlayers list to a UI Manager
+        GameplayUI ui = FindObjectOfType<GameplayUI>();
+        if (ui != null)
+        {
+            ui.ShowRankings(finishedPlayers);
+        }
     }
+
 }
